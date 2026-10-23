@@ -11,6 +11,7 @@
 **Why it mattered:** The cards showed an empty name and "₹NaN" for the price. React printed a "missing key" warning in the console. Weight and kcal were never displayed, and kcal would have been NaN for Cold Coffee.
 
 **How I fixed it:** In `MenuPage.jsx` I passed the correct prop names (`name`, `price`) and added `key={item.id}`. In `MenuCard.jsx` I added the weight and kcal lines using the helper functions. In `nutrition.js` I changed `weightOf` to return `item.weightG ?? 100`, so a missing weight counts as 100 g.
+- I also set the React Router future flags in main.jsx so the router’s own warnings don’t appear in the console.
 
 ## T2 - The Order
 
@@ -57,6 +58,7 @@
 - The category default was `"Snack"` with a capital S, which is not in the enum (`snack`, `meal`, `drink`).
 - The drink weight validator checked `v >= 500`, which is the wrong way round.
 - `formatValidationError` in `utils/formatError.js` just returned the raw Mongoose error.
-- `seed.js` was empty.
+- `seed.js` was empty. 
+- “I placed the logger before express.json() so that every request is logged, even ones with a malformed body.”
 
 **Why it mattered:** Any price above 0 failed validation. The default category would fail the enum check. Drinks over 500 g were accepted while light drinks were rejected. Clients would receive a raw Mongoose error object instead of a clean message. There was no seed script or evidence that saving and validation work.

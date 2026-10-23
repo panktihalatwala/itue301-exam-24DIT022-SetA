@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 
-// Parse JSON bodies BEFORE any route that reads req.body
-app.use(express.json());
-
-// Request logger: [METHOD] [PATH] [TIMESTAMP]
+// Request logger: [METHOD] [PATH] [TIMESTAMP] (first, so every request is logged)
 app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.path} [${new Date().toISOString()}]`);
   next();
 });
+
+// Parse JSON bodies BEFORE any route that reads req.body
+app.use(express.json());
 
 // Energy content (kcal per 100 g) of every item the canteen serves
 const MENU = { "Samosa": 260, "Masala Chai": 50, "Veg Thali": 150, "Cold Coffee": 70 };

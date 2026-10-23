@@ -1,4 +1,4 @@
-# Campus Canteen Pre-Order - Starter Kit (ITUE301 Practical Exam, Set C)
+# Campus Canteen Pre-Order - Starter Kit (ITUE301 Practical Exam, Set A)
 
 Inherited code: each module should meet the rules in the exam paper, but does not. Find out why and fix it.
 
